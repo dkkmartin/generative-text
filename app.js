@@ -43,21 +43,21 @@ function makeElementToGrid() {
 }
 makeElementToGrid();
 
-pElements.forEach((element) => {
-  element.addEventListener('mouseenter', (e) => {
-    e.target.textContent = 1;
-    e.target.nextSibling.textContent = 1;
-    e.target.previousSibling.textContent = 1;
-  });
-});
+function getRandomNumber() {
+  return Math.floor(Math.random() * 2)
+}
 
-pElements.forEach((element) => {
-  element.addEventListener('mouseleave', (e) => {
-    e.target.textContent = 0;
-    e.target.nextSibling.textContent = 0;
-    e.target.previousSibling.textContent = 0;
+function randomNumbersLoop() {
+  pElements.forEach((element) => {
+    element.textContent = getRandomNumber()
+    if(element.nextSibling?.textContent == 1 
+      || element.previousSibling?.textContent == 1 
+      || element.nextSibling?.nextSibling?.textContent == 1
+      || element.previousSibling?.previousSibling?.textContent == 1) {
+      element.textContent = ""
+    }
   });
-});
+}
 
 document.addEventListener('mousemove', (e) => {
   mask.style.top = e.pageY - 2500 + "px"
@@ -73,3 +73,6 @@ document.addEventListener('mouseout', () => {
   mask.style.animationDelay = '5s'
 })
 
+setInterval(() => {
+  randomNumbersLoop()
+}, 369);
