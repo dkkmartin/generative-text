@@ -69,6 +69,7 @@ document.addEventListener('mousemove', (e) => {
 document.addEventListener('mouseout', () => {
   mask.style.top = "calc(50% - 2500px)"
   mask.style.left = "calc(50% - 2500px)"
-  mask.style.animation = 'maskSpin 10s infinite linear'
+  mask.style.animation = 'maskSpin 10s infinite linear forwards'
+  mask.style.animationDelay = '5s'
 })
 

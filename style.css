@@ -33,11 +33,12 @@ body {
 }
 
 .mouse__mask {
-  transition: transform 0.1s;
   position: absolute;
+  top: calc(50% - 2500px);
+  right: calc(50% - 2500px);
   height: 5000px;
   width: 5000px;
-  transform: scale(1.15);
+  transform: scale(1.5);
   background: radial-gradient(
     circle at 50% 50%,
     rgba(0, 0, 0, 0) 0%,
@@ -45,14 +46,9 @@ body {
     rgba(0, 0, 0, 0) 100%
   );
   border-radius: 50%;
-}
-
-.mouse__mask {
-  animation: maskSpin 10s infinite linear;
-}
-
-.mouse__mask:hover {
-  transform: scale(1.5);
+  transition: transform 2s ease-in-out;
+  animation: maskSpin 10s infinite linear forwards;
+  animation-delay: 5s;
 }
 
 @keyframes maskSpin {
