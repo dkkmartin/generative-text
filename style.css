@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: black;
+  color: white;
+  font-family: 'Major Mono Display', monospace;
+  width: 100vw;
+  height: 100vh;
+  padding: 1em;
+  overflow: hidden;
+}
+
+.app {
+  display: grid;
+  grid-template-columns: repeat(19, minmax(50px, 1fr));
+  grid-template-rows: repeat(19, minmax(50px, 1fr));
+  align-items: center;
+  font-size: 50px;
+  height: 100%;
+  width: 100%;
+}
+
+.app p {
+  width: 100%;
+  text-align: center;
+  transition: transform 0.1s;
+}
+
+.mouse__mask {
+  transition: transform 0.1s;
+  position: absolute;
+  height: 5000px;
+  width: 5000px;
+  transform: scale(1.15);
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 1) 50%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  border-radius: 50%;
+}
+
+.mouse__mask {
+  animation: maskSpin 10s infinite linear;
+}
+
+.mouse__mask:hover {
+  transform: scale(1.5);
+}
+
+@keyframes maskSpin {
+  0% {
+    transform: translate(-10%, -10%) scale(1.15);
+  }
+  25% {
+    transform: translate(-10%, 10%) scale(1.15);
+  }
+  50% {
+    transform: translate(10%, 10%) scale(1.15);
+  }
+  75% {
+    transform: translate(10%, -10%) scale(1.15);
+  }
+  100% {
+    transform: translate(-10%, -10%) scale(1.15);
+  }
+}
